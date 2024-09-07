@@ -1,8 +1,10 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.Gamepad;
+import com.qualcomm.robotcore.hardware.Servo;
 
 public class RobotHardware {
 
@@ -12,6 +14,13 @@ public class RobotHardware {
     public DcMotorEx frontRight;
     public DcMotorEx backLeft;
     public DcMotorEx backRight;
+
+    public DcMotorEx pendul;
+
+    public DcMotorEx lift;
+
+    public Servo hook;
+
     public RobotHardware(OpMode opmode) {myOpMode = opmode;}
 
 
@@ -21,6 +30,16 @@ public class RobotHardware {
         frontRight = myOpMode.hardwareMap.get(DcMotorEx.class, "MotorFrontRight");
         backLeft = myOpMode.hardwareMap.get(DcMotorEx.class, "MotorBackLeft");
         backRight = myOpMode.hardwareMap.get(DcMotorEx.class, "MotorBackRight");
+
+        pendul = myOpMode.hardwareMap.get(DcMotorEx.class, "MotorPendul");
+        lift = myOpMode.hardwareMap.get(DcMotorEx.class, "MotorLift");
+
+        hook = myOpMode.hardwareMap.get(Servo.class, "ServoHook");
+
+        pendul.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        pendul.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        lift.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        lift.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
     public void movement(Gamepad gamepad1){
 
