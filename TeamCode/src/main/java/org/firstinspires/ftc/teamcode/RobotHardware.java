@@ -23,6 +23,10 @@ public class RobotHardware {
 
     public RobotHardware(OpMode opmode) {myOpMode = opmode;}
 
+    public final int pendulNeutral = 0;
+    public final int pendulIntake = -1000;
+    public final int pendulOuttake = 500;
+
 
     public void init() {
 
