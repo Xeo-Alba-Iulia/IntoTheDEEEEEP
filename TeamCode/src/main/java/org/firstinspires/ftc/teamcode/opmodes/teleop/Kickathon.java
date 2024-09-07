@@ -1,9 +1,11 @@
 package org.firstinspires.ftc.teamcode.opmodes.teleop;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.RobotHardware;
 
+@TeleOp(name = "Kickathon")
 public class Kickathon extends OpMode {
     RobotHardware robot = new RobotHardware(this);
     @Override
