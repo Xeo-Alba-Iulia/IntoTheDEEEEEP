@@ -35,15 +35,7 @@ public class RobotHardware {
         backLeft = myOpMode.hardwareMap.get(DcMotorEx.class, "MotorBackLeft");
         backRight = myOpMode.hardwareMap.get(DcMotorEx.class, "MotorBackRight");
 
-        pendul = myOpMode.hardwareMap.get(DcMotorEx.class, "MotorPendul");
         lift = myOpMode.hardwareMap.get(DcMotorEx.class, "MotorLift");
-
-        hook = myOpMode.hardwareMap.get(Servo.class, "ServoHook");
-
-        pendul.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        pendul.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        lift.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        lift.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
     public void movement(Gamepad gamepad1){
 
@@ -52,10 +44,10 @@ public class RobotHardware {
         double rx = gamepad1.right_stick_x;
 
         double denominator = Math.max(Math.abs(y) + Math.abs(x) + Math.abs(rx), 1);
-        double frontLeftPower = (-y - x - rx) / denominator;
-        double backLeftPower = (-y + x - rx) / denominator;
-        double frontRightPower = (y - x - rx) / denominator;
-        double backRightPower = (y + x - rx) / denominator;
+        double frontLeftPower = (y - x - rx) / denominator;
+        double backLeftPower = (y + x - rx) / denominator;
+        double frontRightPower = (-y - x - rx) / denominator;
+        double backRightPower = (-y + x - rx) / denominator;
 
 
         frontLeft.setPower(frontLeftPower);
