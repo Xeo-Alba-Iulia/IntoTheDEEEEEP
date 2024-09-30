@@ -15,7 +15,7 @@ public class Kickathon extends OpMode {
     }
 
     public void lift(){
-        robot.lift.setPower(gamepad1.right_stick_y);
+        robot.liftL.setPower(gamepad1.right_stick_y);
     }
 
     @Override
