@@ -3,16 +3,18 @@ package org.firstinspires.ftc.teamcode.sistems;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 
 public class Pendul {
-    DcMotorEx pendul;
+    static DcMotorEx pendulL;
+    static DcMotorEx pendulR;
 
-    public Pendul(DcMotorEx pendul){
-        this.pendul = pendul;
-    }
+    public int target;
 
-    public void setTargetPosition(int position){
-        pendul.setTargetPosition(position);
+    public Pendul(DcMotorEx pendulL, DcMotorEx pendulR) {
+        this.pendulL = pendulL;
+        this.pendulR = pendulR;
+        target = 0;
     }
-    public double getCurrentPosition() {
-        return pendul.getCurrentPosition();
+    public static void setPower(double power) {
+        pendulL.setPower(power);
+        pendulR.setPower(-power);
     }
 }
