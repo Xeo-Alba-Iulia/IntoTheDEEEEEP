@@ -1,3 +1,7 @@
+# Road Runner Quickstart 2
+
+Check out the [new docs](https://rr.brott.dev/docs/v1-0/tuning/).
+
 ## NOTICE
 
 This repository contains the public FTC SDK for the INTO THE DEEP (2024-2025) competition season.
@@ -1116,6 +1120,7 @@ Known issues:
 
 ## Version 3.2 (built on 17.08.02)
 
+Check out the [docs](https://rr.brott.dev/docs/v1-0/tuning/).
 This version of the software introduces the "OnBot Java" Development Tool.  Similar to the FTC Blocks Development Tool, the FTC OnBot Java Development Tool allows a user to create, edit and build OpModes dynamically using only a Javascript-enabled web browser.
 
 The OnBot Java Development Tool is an integrated development environment (IDE) that is served up by the Robot Controller.  OpModes are created and edited using a Javascript-enabled browser (Google Chromse is recommended).  OpModes are saved on the Robot Controller Android device directly.
