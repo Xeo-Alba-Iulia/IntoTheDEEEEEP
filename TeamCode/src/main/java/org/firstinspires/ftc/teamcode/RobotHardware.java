@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.Gamepad;
+import com.qualcomm.robotcore.hardware.Servo;
 
 public class RobotHardware {
 
@@ -12,7 +13,19 @@ public class RobotHardware {
     public DcMotorEx frontRight;
     public DcMotorEx backLeft;
     public DcMotorEx backRight;
+
+    public DcMotorEx pendul;
+
+    public DcMotorEx liftL;
+    public DcMotorEx liftR;
+
+    public Servo hook;
+
     public RobotHardware(OpMode opmode) {myOpMode = opmode;}
+
+    public final int pendulNeutral = 0;
+    public final int pendulIntake = -1000;
+    public final int pendulOuttake = 500;
 
 
     public void init() {
@@ -21,6 +34,9 @@ public class RobotHardware {
         frontRight = myOpMode.hardwareMap.get(DcMotorEx.class, "MotorFrontRight");
         backLeft = myOpMode.hardwareMap.get(DcMotorEx.class, "MotorBackLeft");
         backRight = myOpMode.hardwareMap.get(DcMotorEx.class, "MotorBackRight");
+
+        liftL = myOpMode.hardwareMap.get(DcMotorEx.class, "MotorLiftLeft");
+        liftR = myOpMode.hardwareMap.get(DcMotorEx.class, "MotorLiftRight");
     }
     public void movement(Gamepad gamepad1){
 
@@ -29,10 +45,10 @@ public class RobotHardware {
         double rx = gamepad1.right_stick_x;
 
         double denominator = Math.max(Math.abs(y) + Math.abs(x) + Math.abs(rx), 1);
-        double frontLeftPower = (-y - x - rx) / denominator;
-        double backLeftPower = (-y + x - rx) / denominator;
-        double frontRightPower = (y - x - rx) / denominator;
-        double backRightPower = (y + x - rx) / denominator;
+        double frontLeftPower = (y - x - rx) / denominator;
+        double backLeftPower = (y + x - rx) / denominator;
+        double frontRightPower = (-y - x - rx) / denominator;
+        double backRightPower = (-y + x - rx) / denominator;
 
 
         frontLeft.setPower(frontLeftPower);
